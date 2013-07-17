@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  friendly_name: MyString
+  udid: MyString
+  keep: false
+
+two:
+  friendly_name: MyString
+  udid: MyString
+  keep: false
