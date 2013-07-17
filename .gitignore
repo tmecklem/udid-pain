@@ -1,0 +1,23 @@
+##################################
+# Rails section
+##################################
+
+# Ignore bundler config
+/.bundle
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+
+/public/uploads/*
+
+#####
+# OS X temporary files that should never be committed
+
+.DS_Store
+*.swp
+#*.lock
+profile
