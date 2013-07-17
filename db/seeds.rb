@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+list = []
+File.open("db/device_list.txt", "r") do |infile| 
+  while(line = infile.gets) 
+    l = line.split("\t")
+    list << {friendly_name: l[0], udid: l[1]}
+  end
+end
+
+list.each do |entry|
+  Device.create(entry)
+end

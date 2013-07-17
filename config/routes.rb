@@ -1,6 +1,8 @@
 UdidPain::Application.routes.draw do
-  resources :devices
-
+  
+  match 'devices/:id/update_for_keep' => 'devices#update_for_keep', :as => :update_for_keep
+  match 'devices/:id/keep' => 'devices#keep', :as => :keep_device
+  match 'devices' => 'devices#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

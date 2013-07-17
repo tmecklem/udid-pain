@@ -1,23 +1,20 @@
-%h1 Listing devices
+.row-fluid
+  .span1
+  .span10
+    %h1 Apple Test Devices
+    %table
+      %tr
+        %th Device Identifier (UDID)
+        %th
 
-%table
-  %tr
-    %th Friendly name
-    %th Udid
-    %th Keep
-    %th
-    %th
-    %th
+      - @devices.each do |device|
+        %tr
+          %td= device.udid
+          %td
+            -if not device.keep 
+              = link_to 'I Use This Device!', update_for_keep_path(device), :class => "btn btn-success"
+            -else
+              %div This device will be preserved
 
-  - @devices.each do |device|
-    %tr
-      %td= device.friendly_name
-      %td= device.udid
-      %td= device.keep
-      %td= link_to 'Show', device
-      %td= link_to 'Edit', edit_device_path(device)
-      %td= link_to 'Destroy', device, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Device', new_device_path
+    %br
+  .span1
