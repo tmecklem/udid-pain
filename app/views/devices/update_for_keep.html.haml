@@ -3,23 +3,21 @@
   .span4
     
     %h4 Update Device Description
+    %br
     %p We're almost done! Just take a second to review the device description. It should be as informative as possible. 
     %p A good example is "Mark Johnson's iPad 3". 
+    %br
+    %br
 
-    = form_for @device, :url => keep_device_path(@device), :html => {:class => "form-horizontal"} do |f|
+    = form_for @device, :url => keep_device_path(@device), :html => {:class => "form-inline"} do |f|
       - if @device.errors.any?
         #error_explanation
-          %h2= "#{pluralize(@device.errors.count, "error")} prohibited this device from being saved:"
+          %h5.error= "#{pluralize(@device.errors.count, "error")} prohibited this device from being saved:"
           %ul
             - @device.errors.full_messages.each do |msg|
               %li= msg
-      .control-group
-        .control-label= f.label :friendly_name, "Device Name"
-        .controls
-          = f.text_field :friendly_name
-          %span.help-inline
-      .pull-right
-        = f.submit 'Save', :class => "btn btn-success"
+      = f.text_field :friendly_name
+      = f.submit 'Save', :class => "btn btn-success"
   .span4
 
 

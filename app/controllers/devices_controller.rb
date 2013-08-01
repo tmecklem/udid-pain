@@ -18,9 +18,11 @@ class DevicesController < ApplicationController
     @device = Device.find(params[:id])
     @device.friendly_name = params[:device][:friendly_name]
     @device.keep = true
-    @device.save
-
-    redirect_to :action => "index"
+    if @device.save
+      redirect_to :action => "index"
+    else
+      render :action => "update_for_keep"
+    end
   end
 
   def search
