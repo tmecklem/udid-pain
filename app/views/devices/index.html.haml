@@ -2,13 +2,19 @@
   .span1
   .span10
     %h1 Apple Test Devices
-    %table
+    %p
+      = form_for :device, :url => perform_search_path, :html => {:class => "form-inline"} do |f|
+        = f.text_field :identifier, :placeholder => "Device Name or Partial UDID"
+        = f.submit 'Search', :class => "btn btn-success"
+    %table.table
       %tr
+        %th Device Name
         %th Device Identifier (UDID)
         %th
 
       - @devices.each do |device|
         %tr
+          %td= device.friendly_name
           %td= device.udid
           %td
             -if not device.keep 

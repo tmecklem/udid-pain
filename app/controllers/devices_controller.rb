@@ -23,4 +23,14 @@ class DevicesController < ApplicationController
     redirect_to :action => "index"
   end
 
+  def search
+
+  end
+
+  def perform_search
+    @identifier = params[:device][:identifier]
+    @devices = Device.where("udid LIKE ? or friendly_name LIKE ?", "%#{@identifier}%", "%#{@identifier}%")
+    render :action => "index"
+  end
+
 end

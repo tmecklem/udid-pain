@@ -9,7 +9,7 @@ list = []
 File.open("db/device_list.txt", "r") do |infile| 
   while(line = infile.gets) 
     l = line.split("\t")
-    list << {friendly_name: l[0], udid: l[1]}
+    list << {friendly_name: l[0], udid: l[1].chomp}
   end
 end
 
