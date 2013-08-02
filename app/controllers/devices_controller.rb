@@ -2,7 +2,7 @@ class DevicesController < ApplicationController
   # GET /devices
   # GET /devices.json
   def index
-    @devices = Device.all
+    @devices = Device.order(:friendly_name)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -31,7 +31,7 @@ class DevicesController < ApplicationController
 
   def perform_search
     @identifier = params[:device][:identifier]
-    @devices = Device.where("udid LIKE ? or friendly_name LIKE ?", "%#{@identifier}%", "%#{@identifier}%")
+    @devices = Device.where("udid LIKE ? or friendly_name LIKE ?", "%#{@identifier}%", "%#{@identifier}%").order(:friendly_name)
     render :action => "index"
   end
 
