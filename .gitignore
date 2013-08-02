@@ -23,3 +23,7 @@
 profile
 
 db/device_list.txt
+htaccess_production
+Capfile
+deploy.rb
+production.rb
