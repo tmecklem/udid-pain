@@ -6,6 +6,8 @@ gem 'sqlite3', '1.3.6'
 gem 'jquery-rails'
 gem 'haml'
 gem 'haml-rails'
+gem 'capistrano'   
+gem 'rvm-capistrano'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
