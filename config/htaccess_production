@@ -1,0 +1,2 @@
+RailsEnv production
+SetEnv RAILS_RELATIVE_URL_ROOT /udid-pain
