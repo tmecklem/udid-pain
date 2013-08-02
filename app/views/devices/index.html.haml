@@ -3,6 +3,9 @@
   .span10
     %h1 Apple Test Devices
     %p
+      .pull-right
+        %span Didn't find your device?
+        = link_to "Add a Device", add_device_path, :class => "btn btn-mini btn-primary"
       = form_for :device, :url => perform_search_path, :html => {:class => "form-inline"} do |f|
         = f.text_field :identifier, :placeholder => "Device Name or Partial UDID"
         = f.submit 'Search', :class => "btn btn-success"

@@ -23,6 +23,10 @@
           %a.brand(href="#") Test Device List Manager
 
     .container-fluid
+      .row-fluid
+        .span12
+          - flash.each do |name, msg|
+            = content_tag :div, msg, class: name
       = yield
     
       %footer

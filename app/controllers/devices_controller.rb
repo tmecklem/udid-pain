@@ -35,4 +35,19 @@ class DevicesController < ApplicationController
     render :action => "index"
   end
 
+  def add_device
+    @device = Device.new
+  end
+
+  def save_device
+    @device = Device.new(params[:device])
+    @device.keep = true
+    if @device.save 
+      flash[:notice] = "Successfully added device"
+      redirect_to :action => :index
+    else
+      render :action => :add_device
+    end
+  end
+
 end

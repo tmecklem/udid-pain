@@ -1,0 +1,24 @@
+.row-fluid
+  .span4
+  .span4
+    
+    %h4 Add Device
+    %br
+
+    = form_for @device, :url => save_device_path do |f|
+      - if @device.errors.any?
+        #error_explanation
+          %h5.error= "#{pluralize(@device.errors.count, "error")} prohibited this device from being saved:"
+          %ul
+            - @device.errors.full_messages.each do |msg|
+              %li= msg
+      .form-group
+        = f.label :friendly_name
+        = f.text_field :friendly_name, :placeholder => "Mr. Awesome's iPad 3"
+      .form-group
+        = f.label :udid, "UDID (40 hex characters)"
+        = f.text_field :udid, :placeholder => "0deb623..."
+      = f.submit 'Save', :class => "btn btn-default"
+  .span4
+
+
