@@ -50,4 +50,21 @@ class DevicesController < ApplicationController
     end
   end
 
+  def export
+    @devices = Device.where(:keep => true)
+
+    filename = "devices-#{DateTime.now.to_s}"
+    tempfile = Tempfile.new(filename)
+
+    File.open(tempfile.path, "w") do |export_file|
+      export_file.write "Device ID\tDevice Name\n"
+      @devices.each do |device|
+        export_file.write "#{device.udid}\t#{device.friendly_name}\n"
+      end
+    end
+
+    send_file tempfile.path, :type => 'application/txt', :disposition => 'attachment', :filename => filename
+
+  end
+
 end
