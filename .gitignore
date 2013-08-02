@@ -21,3 +21,5 @@
 *.swp
 #*.lock
 profile
+
+db/device_list.txt
