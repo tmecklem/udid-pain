@@ -8,6 +8,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'capistrano'   
 gem 'rvm-capistrano'
+gem 'rabl'
 
 group :assets do
   gem "therubyracer"
